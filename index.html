@@ -15,8 +15,7 @@ var self="undefined"!=typeof window?window:{},Prism=function(){var a=/\blang(?:u
 function sidebar(a){get(a,function(a){JSON.parse(a).forEach(function(a){V.innerHTML+="<li>"+a.name.slice(0,-3)+"</li>"})})}function article(a,b){get("md/"+a,function(a){
 	document.querySelector("article").innerHTML=marked(a),b&&b.classList.add("sb-current");
 	var c=document.querySelectorAll('code')
-	for(i=c.length;i--;Prism.highlightElement(c[i]))
-	})}function get(a,b){function d(){b(this.responseText)}var c=new XMLHttpRequest;c.onload=d,c.open("get",a),c.send()}sidebar("https:/api.github.com/repos/Daroson/daroson.github.io/contents/md"),article("Javascript语义详解.md"),V=document.querySelector(".vBar"),V.onclick=function(a){article(a.target.innerText+".md",a.target)};
+	for(i=c.length;i--;Prism.highlightElement(c[i]));	})}function get(a,b){function d(){b(this.responseText)}var c=new XMLHttpRequest;c.onload=d,c.open("get",a),c.send()}sidebar("https:/api.github.com/repos/Daroson/daroson.github.io/contents/md"),article("Javascript语义详解.md"),V=document.querySelector(".vBar"),V.onclick=function(a){article(a.target.innerText+".md",a.target)};
 </script>
 <style>
 body,ul{margin:0;padding:0}html{font-size:62.5%}body{color:#333;font-size:14px;min-height:100%;font-family:Verdana,Geneva,sans-serif,'微软雅黑'}article{line-height:22px;padding:10px;max-width:766px;border-top:1px solid #ddd;margin-top:10px}p{margin:0 0 15px}pre{background:#F3F3f9;padding:5px 15px;border-left:10px solid #ddd}a{color:#2080DF;text-decoration:none}h1{padding:10px;text-align:center;margin:0}h2,h3{border-left:5px solid #555;padding-left:10px}table{border-collapse:collapse;border-spacing:0}td{border:#aaa 1px solid;padding:3px 8px}li{list-style:none}::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background-color:#D9D9D9}::-webkit-scrollbar-thumb{background-color:#333}
