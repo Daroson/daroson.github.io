@@ -17,7 +17,7 @@
 本文旨在教会大家进阶级程序员的第一课，即不再从表面的人的角度去看代码，而是从内在的机器的角度去看代码。而从机器的角度出发，Javascript代码的开始相当于一个全局function的调用，而function在调用后并不是马上一行行地运行下去，而是分为两个阶段：初始设定阶段以及正式运行阶段。
 ### 设定阶段 ###
 例1：
-```javscript
+```javascript
     console.log( a,b() )
     var a = 1
     function b() { return 2 }
@@ -122,8 +122,9 @@ closure，宽泛地说，是function这个概念的一种实现，属于变量�
 object，这里暂称它为“变量夹”，特殊的地方在于它里面的变量可以“继承”，使得在子变量夹里可以获取到父变量夹里的变量，但通常一个父变量夹里既有需要被继承的变量，也有不需要被继承的，因此Javascript可以在父变量夹里建一个叫prototype的变量夹，用来存放那些需要被继承的变量。之后子变量夹里会自动建一个叫[[proto]]的内部变量，它的值便是它父变量夹的prototype。（的内存地址）
 
 任何object的prototype都可以赋值或更改，但[[proto]]是内置的无法直接更改，它取决于object的创建方式：
-
+```javascript
     var o = { ... }
+```
 o.[[proto]]指向Object.prototype，而Object.prototype默认是一个空的object（{}），所以没继承任何变量。（这个Object是Javascript里一个全局object变量的名字，所有Javascript里的object都默认以它为原型）
 ```javascript
     var o = new Xxx( ... )
