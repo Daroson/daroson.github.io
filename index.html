@@ -15,7 +15,7 @@ var self="undefined"!=typeof window?window:{},Prism=function(){var a=/\blang(?:u
 function sidebar(a){get(a,function(a){JSON.parse(a).forEach(function(a){V.innerHTML+="<li>"+a.name.slice(0,-3)+"</li>"})})}function article(a,b){get("md/"+a,function(a){
 	document.querySelector("article").innerHTML=marked(a),b&&b.classList.add("sb-current");
 	var c=document.querySelectorAll('code')
-	for(i=c.length;i--;Prism.highlightElement(c[i]);)
+	for(i=c.length;i--;Prism.highlightElement(c[i]))
 	})}function get(a,b){function d(){b(this.responseText)}var c=new XMLHttpRequest;c.onload=d,c.open("get",a),c.send()}sidebar("https:/api.github.com/repos/Daroson/daroson.github.io/contents/md"),article("Javascript语义详解.md"),V=document.querySelector(".vBar"),V.onclick=function(a){article(a.target.innerText+".md",a.target)};
 </script>
 <style>
