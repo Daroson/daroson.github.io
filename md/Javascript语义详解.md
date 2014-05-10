@@ -1,5 +1,5 @@
 初级，或者资深初级程序员，永远是从人的角度去看代码，结果就会产生“变量提升”（variable hoisting）之类不存在的概念，误人误己。比如国外某程序员写的[“进阶教学”博客][1]中，有这么一段代码：
-
+```javscript
     function foo() {
         return "A";
     }
@@ -11,17 +11,17 @@
     }
 
     console.log(foo()); // "AB"
-
+```
 它的实际结果是 RangeError: Maximum call stack size exceeded ，而在此之前，这位程序员才刚刚讲完什么是“variable hoisting”。
 
 本文旨在教会大家进阶级程序员的第一课，即不再从表面的人的角度去看代码，而是从内在的机器的角度去看代码。而从机器的角度出发，Javascript代码的开始相当于一个全局function的调用，而function在调用后并不是马上一行行地运行下去，而是分为两个阶段：初始设定阶段以及正式运行阶段。
 ### 设定阶段 ###
 例1：
-
+```javscript
     console.log( a,b() )
     var a = 1
     function b() { return 2 }
-
+```
 首先在执行前，浏览器会先把这些连着的“字符串”（string）分成一个个“字词”（token），期间会自动在有需要的行尾加上分号，然后再把这些字词组织成一个更方便操作的树状结构（AST），最后才开始执行（execution）。
 
 在设定阶段，会建立一个空的当前代码段（function）的变量表，它可以理解为一个变量名字（identifier）及其内存地址的对照表。
