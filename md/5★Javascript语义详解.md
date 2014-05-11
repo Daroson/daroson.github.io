@@ -125,7 +125,7 @@ object，这里暂称它为“变量夹”，特殊的地方在于它里面的�
 ```javascript
     var o = { ... }
 ```
-o.[[proto]]指向Object.prototype，而Object.prototype默认是一个空的object（{}），所以没继承任何变量。（这个Object是Javascript里一个全局object变量的名字，所有Javascript里的object都默认以它为原型）
+o.[[proto]]指向Object.prototype，这个Object是Javascript里一个全局object变量的名字，所有Javascript里的object都默认以它为原型。
 ```javascript
     var o = new Xxx( ... )
 ```
